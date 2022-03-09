@@ -44,7 +44,7 @@
                 else{
                     return "You Lose! Scissors beats Paper";                    
                 }
-            } else {
+            } else if (playerSelection == "scissors") {
                 if (computerSelection == "rock"){
                     return "You Lose! Rock beats Scissors";
                 }
@@ -54,13 +54,70 @@
                 else{
                     return "Tie!";                    
                 }
+            } else{
+                    console.log("input error, please kindly refresh the page")
+                }
+        }
+
+        function countScore(playerSelection,computerSelection){
+            if (playerSelection == "rock"){
+                if (computerSelection == "rock"){
+                    return "Tie";
+                }
+                else if (computerSelection == "paper"){
+                    return "You Lose";
+                }
+                else{
+                    return "You Win";
+                }
+            } else if (playerSelection == "paper"){
+                if (computerSelection == "rock"){
+                    return "You Win";
+                }
+                else if (computerSelection == "paper"){
+                    return "Tie";
+                }
+                else{
+                    return "You Lose";                    
+                }
+            } else {
+                if (computerSelection == "rock"){
+                    return "You Lose";
+                }
+                else if (computerSelection == "paper"){
+                    return "You Win";
+                }
+                else{
+                    return "Tie";                    
+                }
             }
             
         }
-        const playerSelection = playerPlay();
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection,computerSelection));
-
+        
+        function game(){
+            let playerScore = 0;
+            let computerScore = 0;
+            console.log("Best of 5")
+            for (let i=0;i<5;i++){
+                console.log(`round ${i+1}`);
+                const playerSelection = playerPlay();
+                const computerSelection = computerPlay();
+                console.log(playRound(playerSelection,computerSelection));
+                switch (countScore(playerSelection,computerSelection)) {
+                    case "You Win":
+                    playerScore++;
+                    break;
+                    case "You Lose":
+                    computerScore++;
+                    break;
+                    case "Tie":
+                    break;
+                    case null:
+                    console.log("Error! refresh page!");
+                }
+            }
+            console.log(`Player wins: ${playerScore} times and computer won: ${computerScore} times`);
+        }
     </script>
 </body>
 </html>
