@@ -12,11 +12,14 @@
         function computerPlay(){
             const choiceString = ["rock","paper","scissors"]
             return choiceString[Math.floor(Math.random() * choiceString.length)];
+            //test
             //console.log(choiceString[Math.floor(Math.random() * choiceString.length)]);
         }
         //takes the input selction from  the player and makes sure is is compatible with program
         function playerPlay(){
-            return window.prompt("rock,paper or scissors","");
+            const handSign = window.prompt("rock,paper or scissors","");
+            return handSign.toLowerCase();
+
         }
         //plays a single round of rock-paper-scissors and posts the result on screen
 
@@ -33,28 +36,28 @@
                 }
             } else if (playerSelection == "paper"){
                 if (computerSelection == "rock"){
-
+                    return "You Win! Paper beats Rock";
                 }
                 else if (computerSelection == "paper"){
-
+                    return "Tie!";
                 }
                 else{
-                    
+                    return "You Lose! Scissors beats Paper";                    
                 }
             } else {
                 if (computerSelection == "rock"){
-
+                    return "You Lose! Rock beats Scissors";
                 }
                 else if (computerSelection == "paper"){
-
+                    return "You Win! Scissors beats Paper";
                 }
                 else{
-                    
+                    return "Tie!";                    
                 }
             }
             
         }
-        const playerSelection = "rock";
+        const playerSelection = playerPlay();
         const computerSelection = computerPlay();
         console.log(playRound(playerSelection,computerSelection));
 
