@@ -8,10 +8,56 @@
 </head>
 <body>
     <script>
+        //Randomised selector between rock,paper and scissors
         function computerPlay(){
             const choiceString = ["rock","paper","scissors"]
-            console.log(choiceString[Math.floor(Math.random() * choiceString.length)]);
+            return choiceString[Math.floor(Math.random() * choiceString.length)];
+            //console.log(choiceString[Math.floor(Math.random() * choiceString.length)]);
         }
+        //takes the input selction from  the player and makes sure is is compatible with program
+        function playerPlay(){
+            return window.prompt("rock,paper or scissors","");
+        }
+        //plays a single round of rock-paper-scissors and posts the result on screen
+
+        function playRound(playerSelection,computerSelection){
+            if (playerSelection == "rock"){
+                if (computerSelection == "rock"){
+                    return "Tie!";
+                }
+                else if (computerSelection == "paper"){
+                    return "You Lose! Paper beats Rock";
+                }
+                else{
+                    return "You Win! Rock beats Scissors";
+                }
+            } else if (playerSelection == "paper"){
+                if (computerSelection == "rock"){
+
+                }
+                else if (computerSelection == "paper"){
+
+                }
+                else{
+                    
+                }
+            } else {
+                if (computerSelection == "rock"){
+
+                }
+                else if (computerSelection == "paper"){
+
+                }
+                else{
+                    
+                }
+            }
+            
+        }
+        const playerSelection = "rock";
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection,computerSelection));
+
     </script>
 </body>
 </html>
